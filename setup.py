@@ -17,13 +17,13 @@ setup(
     packages=find_packages(),
     install_requires=['matplotlib==3.7.2',
                         'numpy==1.25.1',
-                        'open3d==0.16.1',
+                        'open3d==0.16.0',
                         'pandas==2.0.3',
                         'scikit-learn==1.3.0',
                         'scipy==1.11.1',
                         'shapely==2.0.1',
                         'tqdm==4.65.0'],
-    python_requires='==3.10.14',
+    python_requires='>=3.10,<3.11',
     entry_points={
     'console_scripts': [
         'pc_cr_gui=pc_cr.gui.gui:main',

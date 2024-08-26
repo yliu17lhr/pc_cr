@@ -85,7 +85,6 @@ def ransac_crack_clustering(source_cloud, target_cloud, source_corrs, target_cor
         if cluster_centroids:
             centroid = source_points[source_corrs][current_indices].mean(axis=0)
             if not all(np.linalg.norm(centroid - x) > min_centroid_dist for x in cluster_centroids):
-                print("Centroid distance criteria not met.")
                 break
         
         res_key = f"cluster_{cluster_count}"
@@ -105,7 +104,6 @@ def ransac_crack_clustering(source_cloud, target_cloud, source_corrs, target_cor
         if cluster_disps:
             if not all(np.linalg.norm(cluster_disp - x) > m_ransac_threshold * min_differential_disp_multiplier
                        for x in cluster_disps):
-                print("Differential displacement criteria not met.")
                 del results[res_key]
                 break
             
@@ -186,7 +184,8 @@ def crack_detection(clustering_results, rec_boundary):
     if "cluster_1" not in clustering_results:
         print('No crack detected')
         return None, None
-
+    
+    print('Crack detected')
     centroid_0 = clustering_results["cluster_0"]["main"]["centroid"]
     centroid_1 = clustering_results["cluster_1"]["main"]["centroid"]
     radius_0 = clustering_results["cluster_0"]["main"]["radius"]
@@ -494,8 +493,6 @@ def crack_measurement(clustering_results, intersections, slope, boundary):
     
     model_paras.append(clustering_results["cluster_0"]["main"]["model_para"])
     model_paras.append(clustering_results["cluster_1"]["main"]["model_para"])
-    
-    print("Centroids:", centroids)
     
     u_00, v_00 = return_rigid_model_displacements(intersections[0], model_paras[0], projection=True)
     u_01, v_01 = return_rigid_model_displacements(intersections[0], model_paras[1], projection=True)

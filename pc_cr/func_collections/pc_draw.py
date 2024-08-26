@@ -104,7 +104,6 @@ def draw_crack_clustering(cloud, analysis_res, b_frame, sc_name, rec_num=None, f
     if savefig:
         plt.savefig(file_name)
         plt.show()
-        plt.close()
     else:
         plt.show()
         plt.close()
@@ -187,7 +186,6 @@ def draw_crack(cloud, b_frame, sc_name, crack_intersection, crack_path, crack_me
     if savefig:
         plt.savefig(file_name)
         plt.show()
-        plt.close()
     else:
         plt.show()
         plt.close()

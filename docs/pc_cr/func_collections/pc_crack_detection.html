@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.1">
+<title>pc_cr.func_collections.pc_crack_detection API documentation</title>
+<meta name="description" content="Created on Mon April 15 15:55:25 2024
+@author: yiyanliu …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pc_cr.func_collections.pc_crack_detection</code></h1>
+</header>
+<section id="section-intro">
+<p>Created on Mon April 15 15:55:25 2024
+@author: yiyanliu</p>
+<p>Point cloud crack detection module</p>
+<p>This module contains the main function and supporting functions that perform RANSAC-based crack detection
+and clustering using point cloud data. It facilitates the identification of cracks based
+on the methodologies outlined in Chapter 8 of Liu's DPhil thesis. This module allows for kinematical
+analysis through iterative filtering and clustering mechanisms to accurately detect and
+measure potential cracks.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="pc_cr.func_collections.pc_crack_detection.calculate_cost"><code class="name flex">
+<span>def <span class="ident">calculate_cost</span></span>(<span>cost_matrix, path)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculate the total cost of a given path based on the provided cost matrix.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>cost_matrix</code></strong> :&ensp;<code>numpy.ndarray</code></dt>
+<dd>A 2D array where each element represents the cost</dd>
+<dt>(distance) between two points.</dt>
+<dt><strong><code>path</code></strong> :&ensp;<code>list</code> of <code>int</code></dt>
+<dd>A list of indices representing the order of points visited.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>The total cost of the path.</dd>
+</dl></div>
+</dd>
+<dt id="pc_cr.func_collections.pc_crack_detection.crack_detection"><code class="name flex">
+<span>def <span class="ident">crack_detection</span></span>(<span>clustering_results, rec_boundary)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Implementation of the crack identification method as descibed in Section 8.2.3.2 of Liu's DPhil thesis.</p>
+<p>Detects the intersection of the clustering line with a rectangular boundary and calculates the slope of the clustering line.</p>
+<h2 id="parameters">Parameters</h2>
+<p>clustering_results (dict): A dictionary containing clustering results including centroids and radii of clusters.
+rec_boundary (list): A list of rectangle boundaries [xmin, xmax, ymin, ymax] defining the area of interest.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>tuple</code></dt>
+<dd>(intersection, slope) where 'intersection' is a list of intersection points (if any)
+and 'slope' is the slope of the line connecting cluster centroids, perpendicular to which the crack is detected.</dd>
+</dl></div>
+</dd>
+<dt id="pc_cr.func_collections.pc_crack_detection.crack_measurement"><code class="name flex">
+<span>def <span class="ident">crack_measurement</span></span>(<span>clustering_results, intersections, slope, boundary)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Implementation of crack measurement as described in Section 8.2.4 of Liu's thesis.
+Crack measurements are derived using optimal rigid body paramters in relation to the identified crack path.</p>
+<h2 id="parameters">Parameters</h2>
+<p>clustering_results (dict): Contains the centroids and model parameters for clusters detected.
+intersections (list of tuples): Points where the clustering line intersects the boundary of rolling windows.
+slope (float): Slope of the line connecting cluster centroids.
+boundary (list): Coordinates defining the boundary within which the measurements are confined. (Legacy placeholder)</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>Measurements of the cracks including width and slide distances between transformed points.</dd>
+</dl></div>
+</dd>
+<dt id="pc_cr.func_collections.pc_crack_detection.crack_point_cost_matrix"><code class="name flex">
+<span>def <span class="ident">crack_point_cost_matrix</span></span>(<span>points)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculate the cost matrix for a set of points based on the Euclidean distance
+between each pair of points.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>points</code></strong> :&ensp;<code>list</code> of <code>tuples</code></dt>
+<dd>A list of (x, y) coordinates representing the points.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>numpy.ndarray</code></dt>
+<dd>A 2D array where each element at index [i][j] represents the</dd>
+</dl>
+<p>distance between point i and point j.</p></div>
+</dd>
+<dt id="pc_cr.func_collections.pc_crack_detection.find_extreme_points"><code class="name flex">
+<span>def <span class="ident">find_extreme_points</span></span>(<span>points)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Identify the indices of the extreme points in a list of points. Extreme points
+are those with the maximum or minimum x and y coordinates.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>points</code></strong> :&ensp;<code>list</code> of <code>tuples</code></dt>
+<dd>A list of (x, y) coordinates representing the points.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code> of <code>int</code></dt>
+<dd>A list of unique indices corresponding to the extreme points</dd>
+</dl>
+<p>(maximum and minimum x and y coordinates).</p></div>
+</dd>
+<dt id="pc_cr.func_collections.pc_crack_detection.line_rect_intersections"><code class="name flex">
+<span>def <span class="ident">line_rect_intersections</span></span>(<span>point, gradient, rect_points)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculates the intersection points of a line with a rectangular boundary.</p>
+<h2 id="parameters">Parameters</h2>
+<p>point (tuple): A point (x, y) through which the line passes.
+gradient (float): Slope of the line.
+rect_points (list of tuples): Coordinates defining the rectangle [(x1, y1), (x2, y2), (x3, y3), (x4, y4)].</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>A list of tuples representing the intersection points (x, y) of the line with the rectangle.</dd>
+</dl></div>
+</dd>
+<dt id="pc_cr.func_collections.pc_crack_detection.nearest_neighbor"><code class="name flex">
+<span>def <span class="ident">nearest_neighbor</span></span>(<span>cost_matrix, start)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Generate a open path using the nearest neighbour heuristic without returning to start point. Starting from a given
+point, the path progresses by repeatedly visiting the nearest unvisited point.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>cost_matrix</code></strong> :&ensp;<code>numpy.ndarray</code></dt>
+<dd>A 2D array where each element represents the cost</dd>
+<dt>(distance) between two points.</dt>
+<dt><strong><code>start</code></strong> :&ensp;<code>int</code></dt>
+<dd>The starting point index.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code> of <code>int</code></dt>
+<dd>A list of indices representing the order of points visited in the path.</dd>
+</dl></div>
+</dd>
+<dt id="pc_cr.func_collections.pc_crack_detection.optimal_tsp"><code class="name flex">
+<span>def <span class="ident">optimal_tsp</span></span>(<span>points)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Connecting all crack points by solving the openloop travelling salesman problem (TSP) by using
+a combination of the nearest neighbour heuristic and the 2-opt algorithm. The assumption is a crack
+always starts (or ends at) from a extreme point - there is no crack starts at a mid point and end at a mid point.
+It probably doesn't matter if we check all points as the start point but as the crack path becomes more
+complex this will be needed.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>points</code></strong> :&ensp;<code>list</code> of <code>tuples</code></dt>
+<dd>A list of (x, y) coordinates representing the points.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>tuple</code></dt>
+<dd>A tuple containing the optimal path (list of int) and the corresponding</dd>
+</dl>
+<p>minimal cost (float).</p></div>
+</dd>
+<dt id="pc_cr.func_collections.pc_crack_detection.perpendicular_clustering_line"><code class="name flex">
+<span>def <span class="ident">perpendicular_clustering_line</span></span>(<span>point1, point2, radius_1, radius_2)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculates the midpoint and perpendicular slope between two points representing cluster centroids.</p>
+<h2 id="parameters">Parameters</h2>
+<p>point1 (tuple): Coordinates of the first centroid.
+point2 (tuple): Coordinates of the second centroid.
+radius_1 (float): Radius around the first centroid.
+radius_2 (float): Radius around the second centroid.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>tuple</code></dt>
+<dd>(perpendicular_slope, midpoint) where 'perpendicular_slope' is the slope of the line
+perpendicular to the line connecting point1 and point2, and 'midpoint' is the calculated midpoint
+between point1 and point2 considering their radii.</dd>
+</dl></div>
+</dd>
+<dt id="pc_cr.func_collections.pc_crack_detection.print_inliers_status"><code class="name flex">
+<span>def <span class="ident">print_inliers_status</span></span>(<span>filter_results, main_results)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Prints the count of inliers identified in the filter phase and main cluestering phase of the RANSAC process.</p>
+<h2 id="parameters">Parameters</h2>
+<p>filter_results (dict): Results dictionary from the filtering phase containing 'inliers'.
+main_results (dict): Results dictionary from the main RANSAC clustering containing 'inliers'.</p></div>
+</dd>
+<dt id="pc_cr.func_collections.pc_crack_detection.ransac_crack_clustering"><code class="name flex">
+<span>def <span class="ident">ransac_crack_clustering</span></span>(<span>source_cloud, target_cloud, source_corrs, target_corrs, f_model='rigid_rec', f_num_samples=2, f_ransac_threshold=0.001, f_iterations=1000, f_draw_method='random', f_score_method='inliers', m_model='rigid_rec', m_num_samples=2, m_ransac_threshold=0.001, m_iterations=1000, m_draw_method='random', m_score_method='quality', maximum_cluster_num=2, min_centroid_dist=0.1, min_differential_disp_multiplier=0.8, min_inlier_percentage=0.3)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Implementation of the PC-Cr feature clustering and crack identification as described in Section 8.2 of Liu's thesis.</p>
+<p>The function iteratively detects clusters (potential cracks) based on inferred displacements between the source and target point clouds using RANSAC.
+It stops when the maximum number of clusters is reached or the clustering criteria are not met.</p>
+<h2 id="parameters">Parameters</h2>
+<p>source_cloud (open3d.geometry.PointCloud): The source point cloud.
+target_cloud (open3d.geometry.PointCloud): The target point cloud.
+source_corrs (np.ndarray): Indices of corresponding points in the source cloud.
+target_corrs (np.ndarray): Indices of corresponding points in the target cloud.
+f_model (str): Model to use for the filtering step in RANSAC. Default is 'rigid_rec'.
+f_num_samples (int): Number of samples to use in each draw in the filtering step. Default is 2.
+f_ransac_threshold (float): RANSAC threshold for the filtering step. Default is 0.001. This is usually set to 1.2<em> re-sampling voxel size.
+f_iterations (int): Number of iterations for the filtering RANSAC step. Default is 1000.
+f_draw_method (str): Method to draw samples in the filtering step. Default is 'random'.
+f_score_method (str): Method to score inliers in the filtering step. Default is 'inliers'.
+m_model (str): Model to use for the main quality based RANSAC step. Default is 'rigid_rec'.
+m_num_samples (int): Number of samples to use in the main main quality based RANSAC step. Default is 2.
+m_ransac_threshold (float): RANSAC threshold for the main step. Default is 0.001. This is usually set to the re-sampling voxel size.
+m_iterations (int): Number of iterations for the main quality based RANSAC step. Default is 1000.
+m_draw_method (str): Method to draw samples in the main quality based RANSAC step. Default is 'random'.
+m_score_method (str): Method to score inliers in the main RANSAC step. Default is 'quality', to return a set of inliers with minimum RMSE within m_ransac_threshold.
+maximum_cluster_num (int): Maximum number of clusters to process. Default is 2.
+min_centroid_dist (float): Minimum distance between centroids of clusters. Default is 0.1. This is set based in relation to the size of rolling window (25% - 50% of the shorted edge)
+min_differential_disp_multiplier (float): Minimum differential displacement multiplier. Default is 0.8. The differential displacement must be greater than 0.8</em>re-sampling voxel size to be considered as valid crack event.
+min_inlier_percentage (float): Minimum percentage of inliers of the entire set required to consider a valid cluster. Default is 0.3. This is to avoid rare occurance of a very samll subset with best RMSE errors. This parameter only affects the order of cluster if it is set greater than 0.5.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>dict</code></dt>
+<dd>A dictionary containing the results of the RANSAC clustering for each detected crack.</dd>
+</dl></div>
+</dd>
+<dt id="pc_cr.func_collections.pc_crack_detection.rectangle_division"><code class="name flex">
+<span>def <span class="ident">rectangle_division</span></span>(<span>b_frame, structural_component, m, n, offset={'x_max_offset': 0, 'x_min_offset': 0, 'y_max_offset': 0, 'y_min_offset': 0})</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Divides a structural component into smaller overalapping rectangles for crack detection and measurements.
+The size of overlapping is fixed to half of the width and height of the rolling window.</p>
+<p>The function divides the specified structural component's bounding frame into a grid of
+smaller overalapping rectangles, with optional offsets applied to the bounding box dimensions.</p>
+<h2 id="parameters">Parameters</h2>
+<p>b_frame (pd.DataFrame): DataFrame containing the boundary of structural components.
+structural_component (str): The name of the structural component to be divided.
+m (int): Number of divisions along the width (horizontal).
+n (int): Number of divisions along the height (vertical).
+offset (dict): Dictionary containing offsets for the bounding box edges:
+- "x_max_offset": Offset for the maximum x-boundary.
+- "x_min_offset": Offset for the minimum x-boundary.
+- "y_max_offset": Offset for the maximum y-boundary.
+- "y_min_offset": Offset for the minimum y-boundary.
+suitable offsets are important for cracks along the boundary of structural components</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>A list of tuples, each representing a rectangle in the form (x_min, x_max, y_min, y_max).</dd>
+</dl></div>
+</dd>
+<dt id="pc_cr.func_collections.pc_crack_detection.return_rigid_model_displacements"><code class="name flex">
+<span>def <span class="ident">return_rigid_model_displacements</span></span>(<span>point_coords, rigid_model_paras, projection=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculates displacement components based on rigid body transformation parameters.</p>
+<h2 id="parameters">Parameters</h2>
+<p>point_coords (numpy.ndarray): Coordinates of the point (x, y, z) for which displacement is calculated.
+rigid_model_paras (numpy.ndarray): Parameters of the rigid model (u0, v0, omega),
+where u0, v0 are translations and omega is the rotation.
+projection (bool): Determines if the displacement calculation should be projected in a different orientation.
+If False, the standard orientation (original y for x, original z for y) is used. If True, it is assumed the data
+is already 2D, thereofre original x for x and original y for y.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>numpy.ndarray</code></dt>
+<dd>Displacement vector [u, v] for the given point under the specified model.</dd>
+</dl></div>
+</dd>
+<dt id="pc_cr.func_collections.pc_crack_detection.rotate_point_by_slope"><code class="name flex">
+<span>def <span class="ident">rotate_point_by_slope</span></span>(<span>x, y, m)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Rotates a point (x, y) by an angle derived from a given slope 'm'.</p>
+<h2 id="parameters">Parameters</h2>
+<p>x (float): The x-coordinate of the point.
+y (float): The y-coordinate of the point.
+m (float): The slope from which the angle of rotation is derived.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>tuple</code></dt>
+<dd>The new coordinates (x', y') of the point after rotation.</dd>
+</dl></div>
+</dd>
+<dt id="pc_cr.func_collections.pc_crack_detection.two_opt"><code class="name flex">
+<span>def <span class="ident">two_opt</span></span>(<span>cost_matrix, path)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Optimise a given path using the 2-opt algorithm, which iteratively swaps pairs
+of edges to reduce the total path cost.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>cost_matrix</code></strong> :&ensp;<code>numpy.ndarray</code></dt>
+<dd>A 2D array where each element represents the cost</dd>
+<dt>(distance) between two points.</dt>
+<dt><strong><code>path</code></strong> :&ensp;<code>list</code> of <code>int</code></dt>
+<dd>A list of indices representing the initial path.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>tuple</code></dt>
+<dd>A tuple containing the optimised path (list of int) and the corresponding cost (float).</dd>
+</dl></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pc_cr.func_collections" href="index.html">pc_cr.func_collections</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="pc_cr.func_collections.pc_crack_detection.calculate_cost" href="#pc_cr.func_collections.pc_crack_detection.calculate_cost">calculate_cost</a></code></li>
+<li><code><a title="pc_cr.func_collections.pc_crack_detection.crack_detection" href="#pc_cr.func_collections.pc_crack_detection.crack_detection">crack_detection</a></code></li>
+<li><code><a title="pc_cr.func_collections.pc_crack_detection.crack_measurement" href="#pc_cr.func_collections.pc_crack_detection.crack_measurement">crack_measurement</a></code></li>
+<li><code><a title="pc_cr.func_collections.pc_crack_detection.crack_point_cost_matrix" href="#pc_cr.func_collections.pc_crack_detection.crack_point_cost_matrix">crack_point_cost_matrix</a></code></li>
+<li><code><a title="pc_cr.func_collections.pc_crack_detection.find_extreme_points" href="#pc_cr.func_collections.pc_crack_detection.find_extreme_points">find_extreme_points</a></code></li>
+<li><code><a title="pc_cr.func_collections.pc_crack_detection.line_rect_intersections" href="#pc_cr.func_collections.pc_crack_detection.line_rect_intersections">line_rect_intersections</a></code></li>
+<li><code><a title="pc_cr.func_collections.pc_crack_detection.nearest_neighbor" href="#pc_cr.func_collections.pc_crack_detection.nearest_neighbor">nearest_neighbor</a></code></li>
+<li><code><a title="pc_cr.func_collections.pc_crack_detection.optimal_tsp" href="#pc_cr.func_collections.pc_crack_detection.optimal_tsp">optimal_tsp</a></code></li>
+<li><code><a title="pc_cr.func_collections.pc_crack_detection.perpendicular_clustering_line" href="#pc_cr.func_collections.pc_crack_detection.perpendicular_clustering_line">perpendicular_clustering_line</a></code></li>
+<li><code><a title="pc_cr.func_collections.pc_crack_detection.print_inliers_status" href="#pc_cr.func_collections.pc_crack_detection.print_inliers_status">print_inliers_status</a></code></li>
+<li><code><a title="pc_cr.func_collections.pc_crack_detection.ransac_crack_clustering" href="#pc_cr.func_collections.pc_crack_detection.ransac_crack_clustering">ransac_crack_clustering</a></code></li>
+<li><code><a title="pc_cr.func_collections.pc_crack_detection.rectangle_division" href="#pc_cr.func_collections.pc_crack_detection.rectangle_division">rectangle_division</a></code></li>
+<li><code><a title="pc_cr.func_collections.pc_crack_detection.return_rigid_model_displacements" href="#pc_cr.func_collections.pc_crack_detection.return_rigid_model_displacements">return_rigid_model_displacements</a></code></li>
+<li><code><a title="pc_cr.func_collections.pc_crack_detection.rotate_point_by_slope" href="#pc_cr.func_collections.pc_crack_detection.rotate_point_by_slope">rotate_point_by_slope</a></code></li>
+<li><code><a title="pc_cr.func_collections.pc_crack_detection.two_opt" href="#pc_cr.func_collections.pc_crack_detection.two_opt">two_opt</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.1</a>.</p>
+</footer>
+</body>
+</html>

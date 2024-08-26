@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.1">
+<title>pc_cr.gui.gui API documentation</title>
+<meta name="description" content="Created on Mon May 13 12:13:16 2024
+@author: yiyanliu …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pc_cr.gui.gui</code></h1>
+</header>
+<section id="section-intro">
+<p>Created on Mon May 13 12:13:16 2024
+@author: yiyanliu</p>
+<p>PC-Cr GUI module</p>
+<p>This module provides a graphical user interface (GUI) for detecting and measuring cracks
+in segmented structural components using point clouds taken before and after a deformation event,
+based on the PC-Cr method. The method is described in Chapter 8 of Liu's DPhil thesis on
+Displacement and Damage Monitoring for Masonry Buildings Subjected to Ground Movements Induced by Underground Construction.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="pc_cr.gui.gui.main"><code class="name flex">
+<span>def <span class="ident">main</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pc_cr.gui.gui.GUI"><code class="flex name class">
+<span>class <span class="ident">GUI</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>A graphical user interface (GUI) for the PC-Cr method, inheriting from tkinter's Tk class.</p>
+<p>This class provides a interface for performing tasks related to feature registration, crack detection
+and measurement in structural components using methods descirbed in Liu's DPhil thesis. It includes functionalities for
+selecting directories and files, configuring processing parameters, and initiating the
+registration, crack detection, and crack plotting processes.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>work_dir_path</code></strong> :&ensp;<code>str</code></dt>
+<dd>The path to the working directory selected by the user.</dd>
+<dt><strong><code>raw_cloud_files</code></strong> :&ensp;<code>dict</code></dt>
+<dd>A dictionary storing the file paths for the pre-test and post-test point clouds.</dd>
+<dt><strong><code>registration_entries</code></strong> :&ensp;<code>dict</code></dt>
+<dd>A dictionary of tkinter Entry widgets for registration configuration parameters.</dd>
+<dt><strong><code>crack_entries</code></strong> :&ensp;<code>dict</code></dt>
+<dd>A dictionary of tkinter Entry widgets for crack detection configuration parameters.</dd>
+<dt><strong><code>check_vars</code></strong> :&ensp;<code>list</code> of <code>tk.IntVar</code></dt>
+<dd>A list of IntVar objects associated with checkbuttons for crack plotting options.</dd>
+<dt><strong><code>status_var</code></strong> :&ensp;<code>tk.StringVar</code></dt>
+<dd>A StringVar object for updating the status bar.</dd>
+</dl>
+<h2 id="methods">Methods</h2>
+<p>init_styles(): Configures the styles for various tkinter widgets used in the GUI.
+create_widgets(): Creates and places all the necessary widgets for the GUI, including buttons, labels, and tabs.
+select_directory(): Opens a dialog for selecting the working directory and updates the GUI accordingly.
+select_file(file_type): Opens a dialog for selecting the pre-test or post-test point cloud file.
+start_processing_task(task_type): Starts the selected processing task (registration, crack detection, or crack plotting).
+generate_config(template_path, config_type): Generates configuration files based on user inputs for registration and crack detection.
+checkbox_changed(): Handles the state changes of checkboxes in the GUI.
+update_status(message): Updates the status bar with the provided message.</p>
+<p>Return a new top level widget on screen SCREENNAME. A new Tcl interpreter will
+be created. BASENAME will be used for the identification of the profile file (see
+readprofile).
+It is constructed from sys.argv[0] without extensions if None is given. CLASSNAME
+is the name of the widget class.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class GUI(tk.Tk):
+    
+    &#34;&#34;&#34;
+    A graphical user interface (GUI) for the PC-Cr method, inheriting from tkinter&#39;s Tk class.
+
+    This class provides a interface for performing tasks related to feature registration, crack detection 
+    and measurement in structural components using methods descirbed in Liu&#39;s DPhil thesis. It includes functionalities for 
+    selecting directories and files, configuring processing parameters, and initiating the 
+    registration, crack detection, and crack plotting processes.
+
+    Attributes:
+        work_dir_path (str): The path to the working directory selected by the user.
+        raw_cloud_files (dict): A dictionary storing the file paths for the pre-test and post-test point clouds.
+        registration_entries (dict): A dictionary of tkinter Entry widgets for registration configuration parameters.
+        crack_entries (dict): A dictionary of tkinter Entry widgets for crack detection configuration parameters.
+        check_vars (list of tk.IntVar): A list of IntVar objects associated with checkbuttons for crack plotting options.
+        status_var (tk.StringVar): A StringVar object for updating the status bar.
+
+    Methods:
+        init_styles(): Configures the styles for various tkinter widgets used in the GUI.
+        create_widgets(): Creates and places all the necessary widgets for the GUI, including buttons, labels, and tabs.
+        select_directory(): Opens a dialog for selecting the working directory and updates the GUI accordingly.
+        select_file(file_type): Opens a dialog for selecting the pre-test or post-test point cloud file.
+        start_processing_task(task_type): Starts the selected processing task (registration, crack detection, or crack plotting).
+        generate_config(template_path, config_type): Generates configuration files based on user inputs for registration and crack detection.
+        checkbox_changed(): Handles the state changes of checkboxes in the GUI.
+        update_status(message): Updates the status bar with the provided message.
+    &#34;&#34;&#34;
+    
+    def __init__(self):
+        super().__init__()
+        self.title(&#34;Point Cloud Crack Detection GUI&#34;)
+        self.geometry(&#34;820x410&#34;)
+        self.configure(bg=&#34;#f0f0f0&#34;)
+        self.resizable(False, False)
+        self.init_styles()
+        self.create_widgets()
+        self.work_dir_path = &#34;&#34;
+        self.raw_cloud_files = {&#34;pre_test&#34;: &#39;&#39;, &#34;post_test&#34;: &#39;&#39;}
+
+    def init_styles(self):
+        style = ttk.Style()
+        style.configure(&#39;TLabel&#39;, background=&#39;#f0f0f0&#39;, foreground=&#39;black&#39;, font=(&#39;Helvetica&#39;, 12))
+        style.configure(&#39;TEntry&#39;, font=(&#39;Helvetica&#39;, 12), foreground=&#39;blue&#39;)
+        style.configure(&#39;TButton&#39;, font=(&#39;Helvetica&#39;, 12), background=&#39;#f0f0f0&#39;, foreground=&#39;green&#39;)
+        style.configure(&#39;TCheckbutton&#39;, font=(&#39;Helvetica&#39;, 10), background=&#39;#f0f0f0&#39;, foreground=&#39;blue&#39;)
+
+        style.map(&#39;TCheckbutton&#39;,
+                  background=[(&#39;active&#39;, &#39;#f0f0f0&#39;), (&#39;selected&#39;, &#39;#c0c0c0&#39;)],
+                  foreground=[(&#39;pressed&#39;, &#39;red&#39;), (&#39;active&#39;, &#39;blue&#39;)],
+                  indicatorcolor=[(&#39;selected&#39;, &#39;green&#39;), (&#39;pressed&#39;, &#39;red&#39;)])
+
+        style.map(&#39;TButton&#39;,
+                  foreground=[(&#39;pressed&#39;, &#39;red&#39;), (&#39;active&#39;, &#39;green&#39;)],
+                  background=[(&#39;pressed&#39;, &#39;!disabled&#39;, &#39;black&#39;), (&#39;active&#39;, &#39;white&#39;)])
+
+    def create_widgets(self):
+        notebook = ttk.Notebook(self)
+        notebook.pack(padx=10, pady=10, fill=&#34;both&#34;, expand=True)
+
+        main_tab = ttk.Frame(notebook)
+        notebook.add(main_tab, text=&#34;Main Processes&#34;)
+
+        title_label = ttk.Label(main_tab, text=&#34;PC-Cr Main Processes&#34;, font=(&#34;Helvetica&#34;, 14, &#34;bold&#34;))
+        title_label.pack(pady=(0, 20))
+
+        button_frame = ttk.Frame(main_tab)
+        button_frame.pack(pady=(0, 20))
+
+        buttons_info = [
+            (&#34;Select Working Directory&#34;, self.select_directory),
+            (&#34;Select Pre-test Cloud&#34;, lambda: self.select_file(&#34;pre&#34;)),
+            (&#34;Select Post-test Cloud&#34;, lambda: self.select_file(&#34;post&#34;)),
+            (&#34;Start Registration&#34;,  lambda: self.start_processing_task(&#39;registration&#39;)),
+            (&#34;Start Crack Detection&#34;, lambda: self.start_processing_task(&#39;crack_detection&#39;)),
+            (&#34;Start Crack Plotting&#34;, lambda: self.start_processing_task(&#39;crack_plot&#39;))
+        ]
+
+        max_text_length = max(len(text) for text, _ in buttons_info)
+        button_width = max_text_length + 6
+
+        for i, (text, command) in enumerate(buttons_info):
+            button = ttk.Button(button_frame, text=text, width=button_width, command=command, style=&#39;TButton&#39;)
+            button.grid(row=i, column=0, padx=10, pady=5, sticky=&#34;ew&#34;)
+
+        message_frame = ttk.Frame(main_tab)
+        message_frame.pack(side=&#34;bottom&#34;, fill=&#34;both&#34;, expand=True)
+
+        self.message_label = ttk.Label(message_frame, text=&#34;PC-Cr (pronounced like &#39;Pika&#39; in Pikachu)&#34;,
+                                       wraplength=450, justify=&#34;left&#34;, style=&#39;TLabel&#39;)
+        self.message_label.pack(side=&#34;bottom&#34;, fill=&#34;x&#34;, expand=True, padx=10, pady=(0, 10))
+
+        self.status_var = tk.StringVar()
+        self.status_var.set(&#34;Ready&#34;)
+        status_bar = ttk.Label(self, textvariable=self.status_var, relief=&#34;sunken&#34;, anchor=&#34;w&#34;, style=&#39;TLabel&#39;)
+        status_bar.pack(side=&#34;bottom&#34;, fill=&#34;x&#34;)
+
+        tab_names = [&#34;Registration Configuration&#34;, &#34;Crack Detection Configuration&#34;, &#34;Crack Plotting Configuration&#34;]
+        config_tabs = []
+        for name in tab_names:
+            tab = ttk.Frame(notebook)
+            notebook.add(tab, text=name)
+            config_tabs.append(tab)
+
+        input_frame_1 = ttk.Frame(config_tabs[0])
+        input_frame_1.pack(pady=20)
+
+        reg_labels = [&#34;Structural Component Name&#34;, &#34;Ceiling Multiplier&#34;,
+                      &#34;Local Region Search Radius&#34;, &#34;Radius Normal Multiplier&#34;,
+                      &#34;Radius Feature Multiplier&#34;]
+        self.registration_entries = {}
+        for i, label_text in enumerate(reg_labels):
+            label_text_colon = label_text + &#34;:&#34;
+            label = ttk.Label(input_frame_1, text=label_text_colon, style=&#39;TLabel&#39;)
+            label.grid(row=i, column=0, padx=10, pady=5, sticky=&#34;w&#34;)
+            entry = ttk.Entry(input_frame_1, style=&#39;TEntry&#39;)
+            entry.grid(row=i, column=1, padx=10, pady=5, sticky=&#34;ew&#34;)
+            self.registration_entries[label_text] = entry
+
+        generate_button = ttk.Button(config_tabs[0], text=&#34;Generate Registration Config&#34;,
+                                     command=lambda: self.generate_config(&#39;feature_registration_config_temp.py&#39;, &#39;registration&#39;),
+                                     style=&#39;TButton&#39;)
+        generate_button.pack(pady=(20, 0))
+
+        entries_frame = ttk.Frame(config_tabs[1])
+        entries_frame.pack(side=&#34;left&#34;, fill=&#34;both&#34;, expand=True)
+
+        canvas = tk.Canvas(entries_frame, bg=&#34;#ffffff&#34;)
+        canvas.pack(side=&#34;left&#34;, fill=&#34;both&#34;, expand=True)
+
+        scrollbar = ttk.Scrollbar(entries_frame, orient=&#34;vertical&#34;, command=canvas.yview)
+        scrollbar.pack(side=&#34;right&#34;, fill=&#34;y&#34;)
+
+        canvas.configure(yscrollcommand=scrollbar.set)
+
+        entries_container = ttk.Frame(canvas)
+        canvas.create_window((0, 0), window=entries_container, anchor=&#34;nw&#34;)
+
+        crack_labels = [
+            &#34;X Coordinate of Point 1&#34;, &#34;Y Coordinate of Point 1&#34;,
+            &#34;X Coordinate of Point 2&#34;, &#34;Y Coordinate of Point 2&#34;,
+            &#34;X Coordinate of Point 3&#34;, &#34;Y Coordinate of Point 3&#34;,
+            &#34;X Coordinate of Point 4&#34;, &#34;Y Coordinate of Point 4&#34;,
+            &#34;X Max Offset&#34;, &#34;X Min Offset&#34;, &#34;Y Max Offset&#34;, &#34;Y Min Offset&#34;,
+            &#34;Number of Rolling Window Horizontal&#34;, &#34;Number of Rolling Window Vertical&#34;,
+            &#34;KL Alpha&#34;, &#34;KL Scale&#34;, &#34;Distance Filter&#34;, &#34;Normal Filter&#34;,
+            &#34;Out-of-plane Filter&#34;, &#34;Minimum Centroid Distance&#34;, &#34;Minimum Differential Displacement Multiplier&#34;
+        ]
+
+        self.crack_entries = {}
+        for i, label_text in enumerate(crack_labels):
+            label_text_colon = label_text + &#34;:&#34;
+            label = ttk.Label(entries_container, text=label_text_colon, style=&#39;TLabel&#39;)
+            label.grid(row=i, column=0, padx=10, pady=5, sticky=&#34;w&#34;)
+
+            if label_text == &#39;KL Scale&#39;:
+                kl_scale_options = [&#34;log&#34;, &#34;normal&#34;]
+                kl_scale_var = tk.StringVar(value=&#34;log&#34;)
+                entry = ttk.Combobox(entries_container, textvariable=kl_scale_var, values=kl_scale_options, state=&#34;readonly&#34;, style=&#39;TEntry&#39;)
+            else:
+                entry = ttk.Entry(entries_container, style=&#39;TEntry&#39;)
+
+            entry.grid(row=i, column=1, padx=10, pady=5, sticky=&#34;ew&#34;)
+            self.crack_entries[label_text] = entry
+
+        generate_button = ttk.Button(entries_container, text=&#34;Generate Crack Detection Config&#34;,
+                                     command=lambda: self.generate_config(&#34;crack_detection_process_config_temp.py&#34;, &#39;crack_detection&#39;),
+                                     style=&#39;TButton&#39;)
+        generate_button.grid(row=len(crack_labels) + 1, column=0, columnspan=2, pady=(20, 0))
+
+        entries_container.bind(&#34;&lt;Configure&gt;&#34;, lambda event: canvas.configure(scrollregion=canvas.bbox(&#34;all&#34;)))
+
+        options = [&#34;Draw Feature Correspondence&#34;, &#34;Draw Identified Crack&#34;, &#34;Draw Crack Clustering&#34;]
+        self.check_vars = [tk.IntVar() for _ in options]
+        
+        print(self.check_vars)
+
+        for i, (option, var) in enumerate(zip(options, self.check_vars)):
+            label = ttk.Label(config_tabs[2], text=option, style=&#39;TLabel&#39;)
+            label.grid(row=i, column=0, padx=(10, 2), pady=10, sticky=&#39;w&#39;)
+
+            checkbox = ttk.Checkbutton(config_tabs[2], variable=var, style=&#39;TCheckbutton&#39;)
+            checkbox.grid(row=i, column=1, padx=(2, 10), pady=10, sticky=&#39;ew&#39;)
+
+    def select_directory(self):
+        directory = filedialog.askdirectory()
+        if directory:
+            self.message_label.config(text=f&#34;Selected Directory: {directory}&#34;)
+            self.update_status(f&#34;Selected directory: {directory}&#34;)
+            self.work_dir_path = directory
+        else:
+            self.message_label.config(text=&#34;No Directory Selected&#34;)
+            self.update_status(&#34;No directory selected.&#34;)
+
+    def select_file(self, file_type):
+        file_path = filedialog.askopenfilename(title=f&#34;Select {&#39;Pre-test&#39; if file_type == &#39;pre&#39; else &#39;Post-test&#39;} Cloud&#34;)
+        if file_path:
+            if file_type == &#39;pre&#39;:
+                self.message_label.config(text=f&#34;Selected Pre-test Cloud: {file_path}&#34;)
+                self.update_status(f&#34;Selected Pre-test Cloud: {file_path}&#34;)
+                self.raw_cloud_files[&#39;pre_test&#39;] = file_path
+            elif file_type == &#39;post&#39;:
+                self.message_label.config(text=f&#34;Selected Post-test Cloud: {file_path}&#34;)
+                self.update_status(f&#34;Selected Post-test Cloud: {file_path}&#34;)
+                self.raw_cloud_files[&#39;post_test&#39;] = file_path
+        else:
+            print(&#34;No file selected&#34;)
+
+    def start_processing_task(self, task_type):
+        self.message_label.config(text=&#34;Task started. Processing...&#34;)
+        self.update_status(&#34;Task started.&#34;)
+    
+        if task_type == &#34;registration&#34;:
+            feature_registration_process.feature_registration_process(self.work_dir_path, self.raw_cloud_files)
+        elif task_type == &#34;crack_detection&#34;:
+            crack_detect_measure_process.crack_detection_measure_process(self.work_dir_path)
+        elif task_type == &#34;crack_plot&#34;:
+            values = [var.get() for var in self.check_vars]
+            crack_plot_process.crack_plot_process(self.work_dir_path, values)
+        self.message_label.config(text=&#34;Task Completed&#34;)
+        self.update_status(&#34;Task Completed.&#34;)
+
+    def generate_config(self, template_path, config_type):
+        
+        if config_type == &#39;registration&#39;:
+            params = {label.lower().replace(&#39; &#39;, &#39;_&#39;).strip(): entry.get()
+                      for label, entry in self.registration_entries.items()}
+        
+        elif config_type == &#39;crack_detection&#39;:
+            params = {label.lower().replace(&#39; &#39;, &#39;_&#39;).strip(): entry.get()
+                      for label, entry in self.crack_entries.items()}
+            params[&#39;structural_component_name&#39;] = self.registration_entries[&#39;Structural Component Name&#39;].get()
+            params[&#39;base_dir&#39;] = self.work_dir_path
+            
+            coords_array = np.asarray([
+                (self.crack_entries[&#34;X Coordinate of Point 1&#34;].get(),
+                 self.crack_entries[&#34;Y Coordinate of Point 1&#34;].get()),
+                (self.crack_entries[&#34;X Coordinate of Point 2&#34;].get(),
+                 self.crack_entries[&#34;Y Coordinate of Point 2&#34;].get()),
+                (self.crack_entries[&#34;X Coordinate of Point 3&#34;].get(),
+                 self.crack_entries[&#34;Y Coordinate of Point 3&#34;].get()),
+                (self.crack_entries[&#34;X Coordinate of Point 4&#34;].get(),
+                 self.crack_entries[&#34;Y Coordinate of Point 4&#34;].get())
+            ])
+                        
+            plot_coords = pc_utilities.construct_coords_frame(coords_array)
+            plot_element_dict = {params[&#39;structural_component_name&#39;]:[0,1,2,3] }
+            
+            analysis_config_data_path = os.path.join(params[&#39;base_dir&#39;], &#34;analysis_config_data&#34;)
+            
+            if not os.path.exists(analysis_config_data_path):
+                os.makedirs(analysis_config_data_path)
+                
+            with open(os.path.join(analysis_config_data_path, &#39;plot_coords.pickle&#39;), &#39;wb&#39;) as file:
+                    pickle.dump(plot_coords, file)
+            
+            with open(os.path.join(analysis_config_data_path, &#39;plot_elements_dict.pickle&#39;), &#39;wb&#39;) as file:
+                            pickle.dump(plot_element_dict, file)
+            
+        file_path = os.path.join(self.work_dir_path,template_path[:-8]+&#39;.py&#39;)
+        
+        template_dir = os.path.dirname(os.path.abspath(__file__))
+        template_path = os.path.join(template_dir, template_path)
+        
+        with open(template_path, &#39;r&#39;) as template_file:
+            template_content = template_file.read()
+            
+        if all(params.values()):
+            
+            formatted_content = template_content
+            try:
+                for key, value in params.items():
+                    temp_template = f&#34;{{{key}}}&#34;
+                    formatted_content = formatted_content.replace(temp_template, str(value))
+            except KeyError as e:
+                print(f&#34;Error formatting the key: {key} with error: {e}&#34;)
+            
+            with open(file_path, &#39;w&#39;) as output_file:
+                output_file.write(formatted_content)
+    
+            self.message_label.config(text=&#34;Configuration file generated successfully!&#34;)
+            self.update_status(&#34;Configuration file generated.&#34;)
+        
+        else:
+            messagebox.showwarning(&#34;Missing Input&#34;, &#34;Please enter values for all parameters.&#34;)
+            self.update_status(&#34;Configuration file generation failed: Missing input.&#34;)
+                
+    def checkbox_changed(self):
+        if self.var1.get() == 1:
+            self.checkbox3.configure(state=tk.DISABLED)
+        else:
+            self.checkbox3.configure(state=tk.NORMAL)
+            
+    def update_status(self, message):
+        self.status_var.set(message)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>tkinter.Tk</li>
+<li>tkinter.Misc</li>
+<li>tkinter.Wm</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="pc_cr.gui.gui.GUI.checkbox_changed"><code class="name flex">
+<span>def <span class="ident">checkbox_changed</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pc_cr.gui.gui.GUI.create_widgets"><code class="name flex">
+<span>def <span class="ident">create_widgets</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pc_cr.gui.gui.GUI.generate_config"><code class="name flex">
+<span>def <span class="ident">generate_config</span></span>(<span>self, template_path, config_type)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pc_cr.gui.gui.GUI.init_styles"><code class="name flex">
+<span>def <span class="ident">init_styles</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pc_cr.gui.gui.GUI.select_directory"><code class="name flex">
+<span>def <span class="ident">select_directory</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pc_cr.gui.gui.GUI.select_file"><code class="name flex">
+<span>def <span class="ident">select_file</span></span>(<span>self, file_type)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pc_cr.gui.gui.GUI.start_processing_task"><code class="name flex">
+<span>def <span class="ident">start_processing_task</span></span>(<span>self, task_type)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pc_cr.gui.gui.GUI.update_status"><code class="name flex">
+<span>def <span class="ident">update_status</span></span>(<span>self, message)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pc_cr.gui" href="index.html">pc_cr.gui</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="pc_cr.gui.gui.main" href="#pc_cr.gui.gui.main">main</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pc_cr.gui.gui.GUI" href="#pc_cr.gui.gui.GUI">GUI</a></code></h4>
+<ul class="">
+<li><code><a title="pc_cr.gui.gui.GUI.checkbox_changed" href="#pc_cr.gui.gui.GUI.checkbox_changed">checkbox_changed</a></code></li>
+<li><code><a title="pc_cr.gui.gui.GUI.create_widgets" href="#pc_cr.gui.gui.GUI.create_widgets">create_widgets</a></code></li>
+<li><code><a title="pc_cr.gui.gui.GUI.generate_config" href="#pc_cr.gui.gui.GUI.generate_config">generate_config</a></code></li>
+<li><code><a title="pc_cr.gui.gui.GUI.init_styles" href="#pc_cr.gui.gui.GUI.init_styles">init_styles</a></code></li>
+<li><code><a title="pc_cr.gui.gui.GUI.select_directory" href="#pc_cr.gui.gui.GUI.select_directory">select_directory</a></code></li>
+<li><code><a title="pc_cr.gui.gui.GUI.select_file" href="#pc_cr.gui.gui.GUI.select_file">select_file</a></code></li>
+<li><code><a title="pc_cr.gui.gui.GUI.start_processing_task" href="#pc_cr.gui.gui.GUI.start_processing_task">start_processing_task</a></code></li>
+<li><code><a title="pc_cr.gui.gui.GUI.update_status" href="#pc_cr.gui.gui.GUI.update_status">update_status</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.1</a>.</p>
+</footer>
+</body>
+</html>

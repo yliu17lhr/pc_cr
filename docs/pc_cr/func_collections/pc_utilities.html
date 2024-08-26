@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.1">
+<title>pc_cr.func_collections.pc_utilities API documentation</title>
+<meta name="description" content="Created on Wed Apr 17 16:46:53 2024
+@author: yiyanliu …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pc_cr.func_collections.pc_utilities</code></h1>
+</header>
+<section id="section-intro">
+<p>Created on Wed Apr 17 16:46:53 2024
+@author: yiyanliu</p>
+<p>point cloud utilities module</p>
+<p>This module provides utility functions for point cloud processing, including
+boundary finding, imetrum like DataFrame construction for the use of legacy DIC functions, and correspondence filtering
+using conventional and KL filters.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="pc_cr.func_collections.pc_utilities.KL_filter"><code class="name flex">
+<span>def <span class="ident">KL_filter</span></span>(<span>feature, source_corrs, target_corrs, alpha=1, scale='normal')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Filter correspondences using Kullback-Leibler (KL) divergence.</p>
+<h2 id="parameters">Parameters</h2>
+<p>feature (numpy.ndarray): Input feature data.
+source_corrs (numpy.ndarray): Source correspondences.
+target_corrs (numpy.ndarray): Target correspondences.
+alpha (float, optional): Threshold scaling factor. Default is 1.
+scale (str, optional): Scaling method for KL divergence. Options are 'normal' or 'log'. Default is 'normal'.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>tuple</code></dt>
+<dd>Filtered source and target correspondences along with their associated KL divergences.</dd>
+</dl></div>
+</dd>
+<dt id="pc_cr.func_collections.pc_utilities.construct_Bmatrix_rigid_rec"><code class="name flex">
+<span>def <span class="ident">construct_Bmatrix_rigid_rec</span></span>(<span>element_index, coords)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Constructs a B-matrix for rigid rectangular elements, considering only rigid body motions
+and excluding any deformations or strains.</p>
+<h2 id="parameters">Parameters</h2>
+<p>element_index (list): Indices of the nodes or elements.
+coords (pd.DataFrame): DataFrame containing 'X' and 'Y' coordinates of nodes.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>numpy.ndarray</code></dt>
+<dd>The constructed B-matrix of shape (2*len(element_index), 3).</dd>
+</dl></div>
+</dd>
+<dt id="pc_cr.func_collections.pc_utilities.construct_b_frame"><code class="name flex">
+<span>def <span class="ident">construct_b_frame</span></span>(<span>strain_elements_dict, coords_df)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Constructs a boundary frame DataFrame for each structural component based on the
+given a dictionary of elements (targets) and their coordinates.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>strain_elements_dict</code></strong> :&ensp;<code>dict</code></dt>
+<dd>A dictionary where keys are structural component identifiers
+and values are lists of element indices.</dd>
+<dt><strong><code>coords_df</code></strong> :&ensp;<code>pandas.DataFrame</code></dt>
+<dd>A DataFrame containing the coordinates of the elements.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>pandas.DataFrame</code></dt>
+<dd>A DataFrame containing the boundary frame for each structural component,
+with columns ['x_min', 'x_max', 'y_min', 'y_max'].</dd>
+</dl></div>
+</dd>
+<dt id="pc_cr.func_collections.pc_utilities.construct_coords_frame"><code class="name flex">
+<span>def <span class="ident">construct_coords_frame</span></span>(<span>point_coords, target_ids=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Construct a Imetrum DIC-like DataFrame suitable to store coordinates of targets. </p>
+<p>Parameters:
+- point_coords (numpy.ndarray): Coordinates array of shape (n_points, 2).
+- target_ids (array-like, optional): Identifiers for the points. Defaults to sequential numbers if None.</p>
+<p>Returns:
+- DataFrame: DataFrame with columns ['Target_ID', '', '', '', 'X', 'Y'].</p></div>
+</dd>
+<dt id="pc_cr.func_collections.pc_utilities.construct_dis_frame"><code class="name flex">
+<span>def <span class="ident">construct_dis_frame</span></span>(<span>u_array, target_ids=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Construct a Imetrum DIC like DataFrame for dsiplacement time history in a structured format.</p>
+<p>Parameters:
+- u_array (numpy.ndarray): Displacement array.
+- target_ids (array-like, optional): Identifiers for the points. Defaults to sequential numbers if None.</p>
+<p>Returns:
+- DataFrame: MultiIndex DataFrame with displacement vectors categorised by point ID and direction ('X', 'Y').</p></div>
+</dd>
+<dt id="pc_cr.func_collections.pc_utilities.construct_pc_uarray"><code class="name flex">
+<span>def <span class="ident">construct_pc_uarray</span></span>(<span>source_cloud, target_cloud, source_corrs, target_corrs, model='rigid_rec')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Constructs a displacement array (<code>u_array</code>) representing the displacements between corresponding points
+in the source and target point clouds.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>source_cloud</code></strong> :&ensp;<code>open3d.geometry.PointCloud</code></dt>
+<dd>The source point cloud.</dd>
+<dt><strong><code>target_cloud</code></strong> :&ensp;<code>open3d.geometry.PointCloud</code></dt>
+<dd>The target point cloud.</dd>
+<dt><strong><code>source_corrs</code></strong> :&ensp;<code>numpy.ndarray</code></dt>
+<dd>Indices of corresponding points in the source cloud.</dd>
+<dt><strong><code>target_corrs</code></strong> :&ensp;<code>numpy.ndarray</code></dt>
+<dd>Indices of corresponding points in the target cloud.</dd>
+<dt><strong><code>model</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>The model type used to process the displacement array. Defaults to 'rigid_rec'.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>numpy.ndarray</code></dt>
+<dd>The processed displacement array (<code>u_array</code>).</dd>
+</dl></div>
+</dd>
+<dt id="pc_cr.func_collections.pc_utilities.correspondence_filter"><code class="name flex">
+<span>def <span class="ident">correspondence_filter</span></span>(<span>source_cloud, target_cloud, source_corrs, target_corrs, distance_threshold=0.1, normal_threshold=0.9, outplane_threshold=0.002)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Filter correspondences based on distance, normal, and outplane thresholds (conventional filter).</p>
+<h2 id="parameters">Parameters</h2>
+<p>source_cloud (PointCloud): Source point cloud.
+target_cloud (PointCloud): Target point cloud.
+source_corrs (numpy.ndarray): Source correspondences.
+target_corrs (numpy.ndarray): Target correspondences.
+distance_threshold (float, optional): Maximum distance threshold. Default is 0.1.
+normal_threshold (float, optional): Minimum normal threshold. Default is 0.9.
+outplane_threshold (float, optional): Outplane threshold. Default is 0.002.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>tuple</code></dt>
+<dd>Filtered source and target correspondences.</dd>
+</dl></div>
+</dd>
+<dt id="pc_cr.func_collections.pc_utilities.feature_corrs_in_boundary"><code class="name flex">
+<span>def <span class="ident">feature_corrs_in_boundary</span></span>(<span>source_cloud, source_corrs, target_corrs, alignedcoords_df, target_IDs, offset={'x_max_offset': 0, 'x_min_offset': 0, 'y_max_offset': 0, 'y_min_offset': 0}, boundary=None, returnmask=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Filters feature correspondences to those within a specified boundary.</p>
+<p>This function checks which of the feature correspondences between a source and target cloud
+lie within a specified boundary based on source cloud. It applies optional offsets to the boundary and returns
+either the filtered correspondences or a boolean mask indicating the correspondences within the boundary.</p>
+<h2 id="parameters">Parameters</h2>
+<p>source_cloud (open3d.geometry.PointCloud): The source point cloud.
+source_corrs (np.ndarray): Indices of corresponding points in the source cloud.
+target_corrs (np.ndarray): Indices of corresponding points in the target cloud.
+alignedcoords_df (pandas.DataFrame): DataFrame containing the aligned coordinates.
+target_IDs (list or np.ndarray): List of target IDs corresponding to the aligned coordinates.
+offset (dict): Dictionary specifying offsets for the boundary in x and y directions.
+Contains keys: "x_max_offset", "x_min_offset", "y_max_offset", "y_min_offset".
+boundary (tuple, optional): Tuple specifying the boundary in the form (x_min, x_max, y_min, y_max).
+If None, the boundary will be calculated using the target IDs.
+returnmask (bool, optional): If True, returns a boolean mask instead of the filtered correspondences.
+Default is False.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt>If returnmask is True:</dt>
+<dt><code>
+np.ndarray</code></dt>
+<dd>A boolean mask indicating the points within the boundary.</dd>
+<dt>Otherwise:</dt>
+<dt><code>
+np.ndarray</code></dt>
+<dd>Indices of corresponding points in the source cloud within the boundary.
+np.ndarray: Indices of corresponding points in the target cloud within the boundary.</dd>
+</dl></div>
+</dd>
+<dt id="pc_cr.func_collections.pc_utilities.find_boundary"><code class="name flex">
+<span>def <span class="ident">find_boundary</span></span>(<span>target_IDs, alignedcoords_df, offset=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculate the boundary of a structural component defined by its DIC target coordinates,
+adjusted by the given offsets.</p>
+<p>Parameters:
+- target_IDs (array-like): Indices or identifiers for target points.
+- alignedcoords_df (DataFrame): DataFrame containing coordinates with 'Target_ID', 'X', and 'Y' columns.
+- offset (dict, optional): Dictionary specifying offsets to apply to the boundary in each direction.
+Defaults to zero offsets for all directions if not provided.</p>
+<p>Returns:
+- tuple: (x_max, x_min, y_max, y_min) boundary coordinates adjusted by the given offsets.</p></div>
+</dd>
+<dt id="pc_cr.func_collections.pc_utilities.find_knn_cpu"><code class="name flex">
+<span>def <span class="ident">find_knn_cpu</span></span>(<span>feat0, feat1, knn=1, return_distance=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Find k nearest neighbors in the target feature space.</p>
+<h2 id="parameters">Parameters</h2>
+<p>feat0 (numpy.ndarray): Query points.
+feat1 (numpy.ndarray): Target feature points.
+knn (int, optional): Number of nearest neighbors. Default is 1.
+return_distance (bool, optional): Whether to return distances. Default is False.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>tuple</code></dt>
+<dd>Indices of the k nearest neighbors, and distances if return_distance is True.</dd>
+</dl></div>
+</dd>
+<dt id="pc_cr.func_collections.pc_utilities.find_r_cpu"><code class="name flex">
+<span>def <span class="ident">find_r_cpu</span></span>(<span>feat0, feat1, r, num_batches=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Find points within a given radius in the target feature space.</p>
+<h2 id="parameters">Parameters</h2>
+<p>feat0 (numpy.ndarray): Query points.
+feat1 (numpy.ndarray): Target feature points.
+r (float): Radius threshold.
+num_batches (int, optional): Number of batches. Default is 1.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>Indices of points within the radius.</dd>
+</dl></div>
+</dd>
+<dt id="pc_cr.func_collections.pc_utilities.generate_B"><code class="name flex">
+<span>def <span class="ident">generate_B</span></span>(<span>element_index, coords, model='rigid_rec')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function acts as a wrapper that selects the appropriate B-matrix construction
+function based on the specified model. The B-matrix is a component in
+strain calculation, relating strains to displacements.</p>
+<h2 id="parameters">Parameters</h2>
+<p>element_index (int): The index of the structural element for which the matrix is generated.
+coords (np.ndarray): The coordinates of the nodes or points within the structural element.
+model (str): Specifies the model used to describe the element behaviour. Options include
+'rec' (rectangular), 'f_rec' (full rectangular), 'rigid_rec' (rigid rectangular),
+'quad' (quadratic), 'h_beam' (horizontal beam), and 'v_beam' (vertical beam).
+<strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong>
+all other model options removed except rigid_rec as they are not relavent in PC-Cr. they were used
+for different project on strain analysis.
+</strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong></p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>np.ndarray</code></dt>
+<dd>The B-matrix corresponding to the specified model.</dd>
+</dl></div>
+</dd>
+<dt id="pc_cr.func_collections.pc_utilities.u_array_wrapper"><code class="name flex">
+<span>def <span class="ident">u_array_wrapper</span></span>(<span>feature_u_array, model='rigid_rec')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Wraps the feature displacement array based on the specified model.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>feature_u_array</code></strong> :&ensp;<code>numpy.ndarray</code></dt>
+<dd>The raw displacement array.</dd>
+<dt><strong><code>model</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>The model type used to process the displacement array.
+Defaults to 'rigid_rec'. Special handling is applied for 'v_beam'.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>numpy.ndarray</code></dt>
+<dd>The processed displacement array (<code>u_array</code>).</dd>
+</dl></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pc_cr.func_collections" href="index.html">pc_cr.func_collections</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="pc_cr.func_collections.pc_utilities.KL_filter" href="#pc_cr.func_collections.pc_utilities.KL_filter">KL_filter</a></code></li>
+<li><code><a title="pc_cr.func_collections.pc_utilities.construct_Bmatrix_rigid_rec" href="#pc_cr.func_collections.pc_utilities.construct_Bmatrix_rigid_rec">construct_Bmatrix_rigid_rec</a></code></li>
+<li><code><a title="pc_cr.func_collections.pc_utilities.construct_b_frame" href="#pc_cr.func_collections.pc_utilities.construct_b_frame">construct_b_frame</a></code></li>
+<li><code><a title="pc_cr.func_collections.pc_utilities.construct_coords_frame" href="#pc_cr.func_collections.pc_utilities.construct_coords_frame">construct_coords_frame</a></code></li>
+<li><code><a title="pc_cr.func_collections.pc_utilities.construct_dis_frame" href="#pc_cr.func_collections.pc_utilities.construct_dis_frame">construct_dis_frame</a></code></li>
+<li><code><a title="pc_cr.func_collections.pc_utilities.construct_pc_uarray" href="#pc_cr.func_collections.pc_utilities.construct_pc_uarray">construct_pc_uarray</a></code></li>
+<li><code><a title="pc_cr.func_collections.pc_utilities.correspondence_filter" href="#pc_cr.func_collections.pc_utilities.correspondence_filter">correspondence_filter</a></code></li>
+<li><code><a title="pc_cr.func_collections.pc_utilities.feature_corrs_in_boundary" href="#pc_cr.func_collections.pc_utilities.feature_corrs_in_boundary">feature_corrs_in_boundary</a></code></li>
+<li><code><a title="pc_cr.func_collections.pc_utilities.find_boundary" href="#pc_cr.func_collections.pc_utilities.find_boundary">find_boundary</a></code></li>
+<li><code><a title="pc_cr.func_collections.pc_utilities.find_knn_cpu" href="#pc_cr.func_collections.pc_utilities.find_knn_cpu">find_knn_cpu</a></code></li>
+<li><code><a title="pc_cr.func_collections.pc_utilities.find_r_cpu" href="#pc_cr.func_collections.pc_utilities.find_r_cpu">find_r_cpu</a></code></li>
+<li><code><a title="pc_cr.func_collections.pc_utilities.generate_B" href="#pc_cr.func_collections.pc_utilities.generate_B">generate_B</a></code></li>
+<li><code><a title="pc_cr.func_collections.pc_utilities.u_array_wrapper" href="#pc_cr.func_collections.pc_utilities.u_array_wrapper">u_array_wrapper</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.1</a>.</p>
+</footer>
+</body>
+</html>

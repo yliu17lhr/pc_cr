@@ -20,12 +20,14 @@ from tkinter import filedialog, messagebox, ttk
 from pc_cr.main_processes import feature_registration_process, crack_detect_measure_process, crack_plot_process
 from pc_cr.func_collections import pc_utilities
 
+
 def main():
     app = GUI()
     app.mainloop()
 
+
 class GUI(tk.Tk):
-    
+
     """
     A graphical user interface (GUI) for the PC-Cr method, inheriting from tkinter's Tk class.
 
@@ -52,7 +54,7 @@ class GUI(tk.Tk):
         checkbox_changed(): Handles the state changes of checkboxes in the GUI.
         update_status(message): Updates the status bar with the provided message.
     """
-    
+
     def __init__(self):
         super().__init__()
         self.title("Point Cloud Crack Detection GUI")
@@ -66,10 +68,13 @@ class GUI(tk.Tk):
 
     def init_styles(self):
         style = ttk.Style()
-        style.configure('TLabel', background='#f0f0f0', foreground='black', font=('Helvetica', 12))
+        style.configure('TLabel', background='#f0f0f0',
+                        foreground='black', font=('Helvetica', 12))
         style.configure('TEntry', font=('Helvetica', 12), foreground='blue')
-        style.configure('TButton', font=('Helvetica', 12), background='#f0f0f0', foreground='green')
-        style.configure('TCheckbutton', font=('Helvetica', 10), background='#f0f0f0', foreground='blue')
+        style.configure('TButton', font=('Helvetica', 12),
+                        background='#f0f0f0', foreground='green')
+        style.configure('TCheckbutton', font=('Helvetica', 10),
+                        background='#f0f0f0', foreground='blue')
 
         style.map('TCheckbutton',
                   background=[('active', '#f0f0f0'), ('selected', '#c0c0c0')],
@@ -87,7 +92,8 @@ class GUI(tk.Tk):
         main_tab = ttk.Frame(notebook)
         notebook.add(main_tab, text="Main Processes")
 
-        title_label = ttk.Label(main_tab, text="PC-Cr Main Processes", font=("Helvetica", 14, "bold"))
+        title_label = ttk.Label(
+            main_tab, text="PC-Cr Main Processes", font=("Helvetica", 14, "bold"))
         title_label.pack(pady=(0, 20))
 
         button_frame = ttk.Frame(main_tab)
@@ -97,8 +103,9 @@ class GUI(tk.Tk):
             ("Select Working Directory", self.select_directory),
             ("Select Pre-test Cloud", lambda: self.select_file("pre")),
             ("Select Post-test Cloud", lambda: self.select_file("post")),
-            ("Start Registration",  lambda: self.start_processing_task('registration')),
-            ("Start Crack Detection", lambda: self.start_processing_task('crack_detection')),
+            ("Start Registration", lambda: self.start_processing_task('registration')),
+            ("Start Crack Detection",
+             lambda: self.start_processing_task('crack_detection')),
             ("Start Crack Plotting", lambda: self.start_processing_task('crack_plot'))
         ]
 
@@ -106,7 +113,8 @@ class GUI(tk.Tk):
         button_width = max_text_length + 6
 
         for i, (text, command) in enumerate(buttons_info):
-            button = ttk.Button(button_frame, text=text, width=button_width, command=command, style='TButton')
+            button = ttk.Button(
+                button_frame, text=text, width=button_width, command=command, style='TButton')
             button.grid(row=i, column=0, padx=10, pady=5, sticky="ew")
 
         message_frame = ttk.Frame(main_tab)
@@ -114,14 +122,17 @@ class GUI(tk.Tk):
 
         self.message_label = ttk.Label(message_frame, text="PC-Cr (pronounced like 'Pika' in Pikachu)",
                                        wraplength=450, justify="left", style='TLabel')
-        self.message_label.pack(side="bottom", fill="x", expand=True, padx=10, pady=(0, 10))
+        self.message_label.pack(side="bottom", fill="x",
+                                expand=True, padx=10, pady=(0, 10))
 
         self.status_var = tk.StringVar()
         self.status_var.set("Ready")
-        status_bar = ttk.Label(self, textvariable=self.status_var, relief="sunken", anchor="w", style='TLabel')
+        status_bar = ttk.Label(
+            self, textvariable=self.status_var, relief="sunken", anchor="w", style='TLabel')
         status_bar.pack(side="bottom", fill="x")
 
-        tab_names = ["Registration Configuration", "Crack Detection Configuration", "Crack Plotting Configuration"]
+        tab_names = ["Registration Configuration",
+                     "Crack Detection Configuration", "Crack Plotting Configuration"]
         config_tabs = []
         for name in tab_names:
             tab = ttk.Frame(notebook)
@@ -137,14 +148,16 @@ class GUI(tk.Tk):
         self.registration_entries = {}
         for i, label_text in enumerate(reg_labels):
             label_text_colon = label_text + ":"
-            label = ttk.Label(input_frame_1, text=label_text_colon, style='TLabel')
+            label = ttk.Label(
+                input_frame_1, text=label_text_colon, style='TLabel')
             label.grid(row=i, column=0, padx=10, pady=5, sticky="w")
             entry = ttk.Entry(input_frame_1, style='TEntry')
             entry.grid(row=i, column=1, padx=10, pady=5, sticky="ew")
             self.registration_entries[label_text] = entry
 
         generate_button = ttk.Button(config_tabs[0], text="Generate Registration Config",
-                                     command=lambda: self.generate_config('feature_registration_config_temp.py', 'registration'),
+                                     command=lambda: self.generate_config(
+                                         'feature_registration_config_temp.py', 'registration'),
                                      style='TButton')
         generate_button.pack(pady=(20, 0))
 
@@ -154,7 +167,8 @@ class GUI(tk.Tk):
         canvas = tk.Canvas(entries_frame, bg="#ffffff")
         canvas.pack(side="left", fill="both", expand=True)
 
-        scrollbar = ttk.Scrollbar(entries_frame, orient="vertical", command=canvas.yview)
+        scrollbar = ttk.Scrollbar(
+            entries_frame, orient="vertical", command=canvas.yview)
         scrollbar.pack(side="right", fill="y")
 
         canvas.configure(yscrollcommand=scrollbar.set)
@@ -176,13 +190,15 @@ class GUI(tk.Tk):
         self.crack_entries = {}
         for i, label_text in enumerate(crack_labels):
             label_text_colon = label_text + ":"
-            label = ttk.Label(entries_container, text=label_text_colon, style='TLabel')
+            label = ttk.Label(entries_container,
+                              text=label_text_colon, style='TLabel')
             label.grid(row=i, column=0, padx=10, pady=5, sticky="w")
 
             if label_text == 'KL Scale':
                 kl_scale_options = ["log", "normal"]
                 kl_scale_var = tk.StringVar(value="log")
-                entry = ttk.Combobox(entries_container, textvariable=kl_scale_var, values=kl_scale_options, state="readonly", style='TEntry')
+                entry = ttk.Combobox(entries_container, textvariable=kl_scale_var,
+                                     values=kl_scale_options, state="readonly", style='TEntry')
             else:
                 entry = ttk.Entry(entries_container, style='TEntry')
 
@@ -190,22 +206,27 @@ class GUI(tk.Tk):
             self.crack_entries[label_text] = entry
 
         generate_button = ttk.Button(entries_container, text="Generate Crack Detection Config",
-                                     command=lambda: self.generate_config("crack_detection_process_config_temp.py", 'crack_detection'),
+                                     command=lambda: self.generate_config(
+                                         "crack_detection_process_config_temp.py", 'crack_detection'),
                                      style='TButton')
-        generate_button.grid(row=len(crack_labels) + 1, column=0, columnspan=2, pady=(20, 0))
+        generate_button.grid(row=len(crack_labels) + 1,
+                             column=0, columnspan=2, pady=(20, 0))
 
-        entries_container.bind("<Configure>", lambda event: canvas.configure(scrollregion=canvas.bbox("all")))
+        entries_container.bind("<Configure>", lambda event: canvas.configure(
+            scrollregion=canvas.bbox("all")))
 
-        options = ["Draw Feature Correspondence", "Draw Identified Crack", "Draw Crack Clustering"]
+        options = ["Draw Feature Correspondence",
+                   "Draw Identified Crack", "Draw Crack Clustering"]
         self.check_vars = [tk.IntVar() for _ in options]
-        
+
         print(self.check_vars)
 
         for i, (option, var) in enumerate(zip(options, self.check_vars)):
             label = ttk.Label(config_tabs[2], text=option, style='TLabel')
             label.grid(row=i, column=0, padx=(10, 2), pady=10, sticky='w')
 
-            checkbox = ttk.Checkbutton(config_tabs[2], variable=var, style='TCheckbutton')
+            checkbox = ttk.Checkbutton(
+                config_tabs[2], variable=var, style='TCheckbutton')
             checkbox.grid(row=i, column=1, padx=(2, 10), pady=10, sticky='ew')
 
     def select_directory(self):
@@ -219,14 +240,17 @@ class GUI(tk.Tk):
             self.update_status("No directory selected.")
 
     def select_file(self, file_type):
-        file_path = filedialog.askopenfilename(title=f"Select {'Pre-test' if file_type == 'pre' else 'Post-test'} Cloud")
+        file_path = filedialog.askopenfilename(
+            title=f"Select {'Pre-test' if file_type == 'pre' else 'Post-test'} Cloud")
         if file_path:
             if file_type == 'pre':
-                self.message_label.config(text=f"Selected Pre-test Cloud: {file_path}")
+                self.message_label.config(
+                    text=f"Selected Pre-test Cloud: {file_path}")
                 self.update_status(f"Selected Pre-test Cloud: {file_path}")
                 self.raw_cloud_files['pre_test'] = file_path
             elif file_type == 'post':
-                self.message_label.config(text=f"Selected Post-test Cloud: {file_path}")
+                self.message_label.config(
+                    text=f"Selected Post-test Cloud: {file_path}")
                 self.update_status(f"Selected Post-test Cloud: {file_path}")
                 self.raw_cloud_files['post_test'] = file_path
         else:
@@ -235,11 +259,13 @@ class GUI(tk.Tk):
     def start_processing_task(self, task_type):
         self.message_label.config(text="Task started. Processing...")
         self.update_status("Task started.")
-    
+
         if task_type == "registration":
-            feature_registration_process.feature_registration_process(self.work_dir_path, self.raw_cloud_files)
+            feature_registration_process.feature_registration_process(
+                self.work_dir_path, self.raw_cloud_files)
         elif task_type == "crack_detection":
-            crack_detect_measure_process.crack_detection_measure_process(self.work_dir_path)
+            crack_detect_measure_process.crack_detection_measure_process(
+                self.work_dir_path)
         elif task_type == "crack_plot":
             values = [var.get() for var in self.check_vars]
             crack_plot_process.crack_plot_process(self.work_dir_path, values)
@@ -247,17 +273,17 @@ class GUI(tk.Tk):
         self.update_status("Task Completed.")
 
     def generate_config(self, template_path, config_type):
-        
+
         if config_type == 'registration':
             params = {label.lower().replace(' ', '_').strip(): entry.get()
                       for label, entry in self.registration_entries.items()}
-        
+
         elif config_type == 'crack_detection':
             params = {label.lower().replace(' ', '_').strip(): entry.get()
                       for label, entry in self.crack_entries.items()}
             params['structural_component_name'] = self.registration_entries['Structural Component Name'].get()
             params['base_dir'] = self.work_dir_path
-            
+
             coords_array = np.asarray([
                 (self.crack_entries["X Coordinate of Point 1"].get(),
                  self.crack_entries["Y Coordinate of Point 1"].get()),
@@ -268,57 +294,64 @@ class GUI(tk.Tk):
                 (self.crack_entries["X Coordinate of Point 4"].get(),
                  self.crack_entries["Y Coordinate of Point 4"].get())
             ])
-                        
+
             plot_coords = pc_utilities.construct_coords_frame(coords_array)
-            plot_element_dict = {params['structural_component_name']:[0,1,2,3] }
-            
-            analysis_config_data_path = os.path.join(params['base_dir'], "analysis_config_data")
-            
+            plot_element_dict = {
+                params['structural_component_name']: [0, 1, 2, 3]}
+
+            analysis_config_data_path = os.path.join(
+                params['base_dir'], "analysis_config_data")
+
             if not os.path.exists(analysis_config_data_path):
                 os.makedirs(analysis_config_data_path)
-                
+
             with open(os.path.join(analysis_config_data_path, 'plot_coords.pickle'), 'wb') as file:
-                    pickle.dump(plot_coords, file)
-            
+                pickle.dump(plot_coords, file)
+
             with open(os.path.join(analysis_config_data_path, 'plot_elements_dict.pickle'), 'wb') as file:
-                            pickle.dump(plot_element_dict, file)
-            
-        file_path = os.path.join(self.work_dir_path,template_path[:-8]+'.py')
-        
+                pickle.dump(plot_element_dict, file)
+
+        file_path = os.path.join(self.work_dir_path, template_path[:-8]+'.py')
+
         template_dir = os.path.dirname(os.path.abspath(__file__))
         template_path = os.path.join(template_dir, template_path)
-        
+
         with open(template_path, 'r') as template_file:
             template_content = template_file.read()
-            
+
         if all(params.values()):
-            
+
             formatted_content = template_content
             try:
                 for key, value in params.items():
                     temp_template = f"{{{key}}}"
-                    formatted_content = formatted_content.replace(temp_template, str(value))
+                    formatted_content = formatted_content.replace(
+                        temp_template, str(value))
             except KeyError as e:
                 print(f"Error formatting the key: {key} with error: {e}")
-            
+
             with open(file_path, 'w') as output_file:
                 output_file.write(formatted_content)
-    
-            self.message_label.config(text="Configuration file generated successfully!")
+
+            self.message_label.config(
+                text="Configuration file generated successfully!")
             self.update_status("Configuration file generated.")
-        
+
         else:
-            messagebox.showwarning("Missing Input", "Please enter values for all parameters.")
-            self.update_status("Configuration file generation failed: Missing input.")
-                
+            messagebox.showwarning(
+                "Missing Input", "Please enter values for all parameters.")
+            self.update_status(
+                "Configuration file generation failed: Missing input.")
+
     def checkbox_changed(self):
         if self.var1.get() == 1:
             self.checkbox3.configure(state=tk.DISABLED)
         else:
             self.checkbox3.configure(state=tk.NORMAL)
-            
+
     def update_status(self, message):
         self.status_var.set(message)
+
 
 if __name__ == "__main__":
     main()

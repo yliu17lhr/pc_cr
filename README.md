@@ -1,6 +1,6 @@
 # PC-Cr (pronounced like "Pika")
 
-**PC-Cr** is a software package implementing the PC-CR method for detecting and measuring cracks in segmented structural components using point clouds taken before and after a deformation event. The PC-CR method is detailed in Chapter 8 of Yiyan Liu's DPhil thesis on *Displacement and Damage Monitoring for Masonry Buildings Subjected to Ground Movements Induced by Underground Construction*.
+**PC-Cr** is a software package implementing the PC-CR method for detecting and measuring cracks in segmented structural components using point clouds taken before and after a deformation event. The PC-CR method is detailed in Chapter 8 of Yiyan Liu's DPhil thesis on [*Displacement and Damage Monitoring for Masonry Buildings Subjected to Ground Movements Induced by Underground Construction*](https://ora.ox.ac.uk/objects/uuid:b5337a6a-c9fc-4c3b-b456-05751eb3d353).
 
 ## Features
 
@@ -108,8 +108,22 @@ python -m pc_cr.gui.gui
 
 ## License
 
-This software package, **PC-Cr**, is currently limited to internal use only within the dedicated research group in the Department of Engineering Science at University of Oxford.
-For further information, please contact **Sinan Acikgoz** or **Harvey J. Burd**.
+This project is licensed under the **BSD 3-Clause License**. See the LICENSE file for details.
+
+## Contribution Policy
+
+This repository is provided as-is. **Pull requests and issues are not accepted.**
+
+If you find this project useful or would like to improve it, feel free to fork the repository and develop your own version. Contributions will not be merged into the main repository.
+
+## Contact
+
+For inquiries or collaboration opportunities, please contact:
+
+- **Yiyan Liu**: [dimo.liu@gmail.com]()  
+- **[Harvey Burd]**: [Harvey.burd@eng.ox.ac.uk]()
+- **[Sinan Acikgoz]**: [Sinan.acikgoz@eng.ox.ac.uk]()
+
 
 ## Authors
 

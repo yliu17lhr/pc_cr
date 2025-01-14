@@ -121,8 +121,8 @@ If you find this project useful or would like to improve it, feel free to fork t
 For inquiries or collaboration opportunities, please contact:
 
 - **Yiyan Liu**: [dimo.liu@gmail.com]()  
-- **[Harvey Burd]**: [Harvey.burd@eng.ox.ac.uk]()
-- **[Sinan Acikgoz]**: [Sinan.acikgoz@eng.ox.ac.uk]()
+- **Harvey Burd**: [Harvey.burd@eng.ox.ac.uk]()
+- **Sinan Acikgoz**: [Sinan.acikgoz@eng.ox.ac.uk]()
 
 
 ## Authors

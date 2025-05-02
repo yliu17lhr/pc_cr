@@ -108,7 +108,12 @@ python -m pc_cr.gui.gui
 
 ## License
 
-This project is licensed under the **BSD 3-Clause License**. See the LICENSE file for details.
+This project is licensed under the [Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/).
+
+© 2025 Yiyan Liu, Harvey John Burd, Sinan Acikgoz
+
+_This repository was previously licensed under the BSD 3-Clause License. As of May 2025, it is licensed under CC BY-NC 4.0._
+
 
 ## Contribution Policy
 
@@ -130,3 +135,7 @@ For inquiries or collaboration opportunities, please contact:
 - **Yiyan Liu**
 - **Harvey J. Burd**
 - **Sinan Acikgoz**
+
+## Acknowledgements
+
+This work was supported by Arup through an EPSRC iCASE studentship and by the Institution of Structural Engineers (IStructE) through the 2020 IStructE Research Award, which supported the associated experimental work.

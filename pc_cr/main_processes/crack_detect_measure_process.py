@@ -116,6 +116,38 @@ def crack_detection_measure_process(directory_path):
         source_corrs, target_corrs = pc_utilities.feature_corrs_in_boundary(pc_pretest_down, feature_reg_results[structural_component][:,0], feature_reg_results[structural_component][:,1],  None,
         None,boundary=rec_division,  returnmask = False)
 
+        if len(source_corrs) <= 20:
+            
+            analysis_results[structural_component][div_num] = {
+                'corrs_inital': np.empty((0, 2), dtype=np.int32),
+                'in_bound': np.empty((0, 2), dtype=np.int32),
+                'KL_filter': np.empty((0, 2), dtype=np.int32),
+                'main_filter': np.empty((0, 2), dtype=np.int32),
+                'division': rec_division,
+                'crack_clustering': {
+                    'cluster_0': {
+                        'filter': {
+                            'inliers': np.empty((0,), dtype=np.int32),
+                            'model_para': np.asarray([0,0,0]),
+                            'current_quality': None,
+                            'labels': None
+                        },
+                        'main': {
+                            'inliers': np.empty((0,), dtype=np.int32),
+                            'model_para': np.asarray([0,0,0]),
+                            'current_quality': None,
+                            'labels': None,
+                            'centroid': np.asarray([ 0, (rec_division[0]+rec_division[1])/2 , (rec_division[2]+rec_division[3])/2]),
+                            'radius': None
+                        }
+                    }
+                },
+                'crack_detection': None,
+                'crack_slope': None
+            }
+            
+            continue
+
         source_corrs_KL, target_corrs_KL, _ = pc_utilities.KL_filter(pc_pretest_fpfh, source_corrs, target_corrs, alpha=config.global_analysis_paras["KL_alpha"], scale=config.global_analysis_paras["KL_scale"])
 
         source_corrs_b, target_corrs_b = pc_utilities.correspondence_filter(pc_pretest_down, pc_posttest_down, source_corrs_KL, target_corrs_KL, distance_threshold=config.global_analysis_paras["dis_filter"], normal_threshold=config.global_analysis_paras["normal_filter"], outplane_threshold=config.global_analysis_paras["outplane_filter"])
